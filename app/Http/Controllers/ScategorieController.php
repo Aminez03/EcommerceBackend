@@ -80,4 +80,9 @@ class ScategorieController extends Controller
         return response()->json("Suppression impossible {$e->getMessage()}");
         }
         }
+
+        
+
+
+
 }
