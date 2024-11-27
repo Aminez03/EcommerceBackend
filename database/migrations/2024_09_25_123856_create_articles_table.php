@@ -25,6 +25,10 @@ return new class extends Migration
         $table->decimal('prix', 8, 2);
         // Image avec limite de taille (255 caractères)
         $table->string('imageart', 255)->nullable();
+
+
+
+        
         $table->unsignedBigInteger('scategorieID');
         // Définition de la clé étrangère avec contrainte onDelete restrict
         $table->foreign('scategorieID')

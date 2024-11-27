@@ -3,6 +3,7 @@
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\CategorieController;
 use App\Http\Controllers\ScategorieController;
+use App\Http\Controllers\StripeController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -21,6 +22,7 @@ Route::get('/user', function (Request $request) {
 
 Route::middleware('api')->group(function () {
     Route::resource('categories', CategorieController::class);});
+
 Route::middleware('api')->group(function () {
         Route::resource('scategories', ScategorieController::class);});
 Route::middleware('api')->group(function () {
@@ -29,6 +31,12 @@ Route::middleware('api')->group(function () {
         
 Route::get('/scat/{idscat}', [ScategorieController::class,'showSCategorieByCAT']);
 
+
+
 Route::get('/listarticles/{idscat}', [ArticleController::class,'showArticlesBySCAT']);
 
 Route::get('/articles/art/articlespaginate', [ArticleController::class,'articlesPaginate']);
+
+
+
+Route::post('/payment/processpayment', [StripeController::class,'processPayment']);
